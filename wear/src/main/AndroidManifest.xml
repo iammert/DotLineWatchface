@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/wf_logo"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.DeviceDefault" >
         <service
@@ -22,10 +22,10 @@
                 android:resource="@xml/watch_face" />
             <meta-data
                 android:name="com.google.android.wearable.watchface.preview"
-                android:resource="@drawable/preview_analog" />
+                android:resource="@drawable/wf_logo" />
             <meta-data
                 android:name="com.google.android.wearable.watchface.preview_circular"
-                android:resource="@drawable/preview_analog" />
+                android:resource="@drawable/wf_logo" />
 
             <meta-data
                 android:name="com.google.android.wearable.watchface.companionConfigurationAction"
