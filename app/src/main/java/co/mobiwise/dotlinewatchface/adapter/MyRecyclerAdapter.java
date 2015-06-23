@@ -2,6 +2,7 @@ package co.mobiwise.dotlinewatchface.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     private Context mContext;
     private OnItemClickListener mListener;
 
+    private int mSelectedPosition = -1;
+
     private ViewHolder currentHolder;
 
     private DotLinePreferences mPreferences;
@@ -37,7 +40,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
 
     @Override
     public MyRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-
         View view = LayoutInflater.from(mContext).inflate(R.layout.row_watch_colors,viewGroup,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
@@ -46,6 +48,10 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     @Override
     public void onBindViewHolder(MyRecyclerAdapter.ViewHolder viewHolder, int i) {
         viewHolder.colorView.setColor(mColorArray[i]);
+        if(i != mSelectedPosition)
+            viewHolder.colorView.setSelected(false);
+        else
+            viewHolder.colorView.setSelected(true);
     }
 
     @Override
@@ -68,6 +74,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         public void onClick(View v) {
             if(mListener != null){
                 mListener.onItemClicked(v, getPosition());
+                mSelectedPosition = getPosition();
+
                 if(currentHolder!=null)
                     currentHolder.colorView.setSelected(false);
                 currentHolder = this;
