@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WearControlActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_toolbar"
+        android:minHeight="?android:attr/actionBarSize">
+
+        <co.mobiwise.dotlinewatchface.ui.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/text_size_toolbar"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <co.mobiwise.dotlinewatchface.ui.RobotoTextView
+        android:id="@+id/textview_header_watchface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="30dp"
+        android:text="@string/my_watchface"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/text_size_toolbar"
+        />
+
+    <co.mobiwise.dotlinewatchface.ui.DotLineView
+        android:id="@+id/view_dotline"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textview_header_watchface"
+        android:layout_marginTop="30dp"/>
+
+
+    <co.mobiwise.dotlinewatchface.ui.RobotoTextView
+        android:id="@+id/textview_colors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/recycler_view"
+        android:layout_marginBottom="30dp"
+        android:text="@string/watchface_colors"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/text_size_toolbar"
+        />
+
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        class="android.support.v7.widget.RecyclerView"
+        android:id="@+id/recycler_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
